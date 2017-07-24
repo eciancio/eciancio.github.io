@@ -215,6 +215,82 @@
  	google.maps.event.addListener(marker, 'mouseout', function(event) {
 	           this.setIcon('http://www.christielakekids.com/_images/new/blue_circle.png');
 		});
+
+		var marker = new google.maps.Marker({
+			position: new google.maps.LatLng(46.575405, -85.256303),
+			map:map,
+			id: 'programs',
+			icon: 'http://www.christielakekids.com/_images/new/blue_circle.png',
+			zIndex: 100
+	});
+	google.maps.event.addListener(marker, 'mouseover', function(event) {
+		this.setIcon('tq_falls.JPG');
+	});
+	
+ 	google.maps.event.addListener(marker, 'mouseout', function(event) {
+	           this.setIcon('http://www.christielakekids.com/_images/new/blue_circle.png');
+		});
+		
+	var marker = new google.maps.Marker({
+			position: new google.maps.LatLng(44.864395, -86.043650),
+			map:map,
+			id: 'programs',
+			icon: 'http://www.christielakekids.com/_images/new/blue_circle.png',
+			zIndex: 100
+	});
+	google.maps.event.addListener(marker, 'mouseover', function(event) {
+		this.setIcon('sleeping.JPG');
+	});
+	
+ 	google.maps.event.addListener(marker, 'mouseout', function(event) {
+	           this.setIcon('http://www.christielakekids.com/_images/new/blue_circle.png');
+		});
+	
+	var marker = new google.maps.Marker({
+			position: new google.maps.LatLng(45.723036, -84.608127),
+			map:map,
+			id: 'programs',
+			icon: 'http://www.christielakekids.com/_images/new/blue_circle.png',
+			zIndex: 100
+	});
+	google.maps.event.addListener(marker, 'mouseover', function(event) {
+		this.setIcon('camping.jpg');
+	});
+	
+ 	google.maps.event.addListener(marker, 'mouseout', function(event) {
+	           this.setIcon('http://www.christielakekids.com/_images/new/blue_circle.png');
+		});
+	var marker = new google.maps.Marker({
+			position: new google.maps.LatLng(45.405528, -84.912725),
+			map:map,
+			id: 'programs',
+			icon: 'http://www.christielakekids.com/_images/new/blue_circle.png',
+			zIndex: 100
+	});
+	google.maps.event.addListener(marker, 'mouseover', function(event) {
+		this.setIcon('sands.jpg');
+	});
+	
+ 	google.maps.event.addListener(marker, 'mouseout', function(event) {
+	           this.setIcon('http://www.christielakekids.com/_images/new/blue_circle.png');
+		});
+
+	var marker = new google.maps.Marker({
+			position: new google.maps.LatLng(45.396690, -84.057809),
+			map:map,
+			id: 'programs',
+			icon: 'http://www.christielakekids.com/_images/new/blue_circle.png',
+			zIndex: 100
+	});
+	google.maps.event.addListener(marker, 'mouseover', function(event) {
+		this.setIcon('rain_falls.jpg');
+	});
+	
+ 	google.maps.event.addListener(marker, 'mouseout', function(event) {
+	           this.setIcon('http://www.christielakekids.com/_images/new/blue_circle.png');
+		});
+
+
 	}
 	
       function initMap() {
@@ -223,7 +299,7 @@
 
 	});
 	add_markers();
-	//draw_path();
+	draw_path();
      map.setZoom(7);
       
       }
