@@ -7,7 +7,8 @@
     <style>
     /* Always set the map height explicitly to define the size of the div
     * element that contains the map. */
-      #over_map {position: absolute; left: 45%;top: 1%;font-size: 110%; font-weight: bold;z-index : 50; }
+      #over_map {position: absolute; left:0; top:5%; height:10%; width:100%; font-size: 110%; font-weight: bold; text-align: middle;}
+
       #map {
         height: 100%;
       }
@@ -21,7 +22,7 @@
   </head>
   <body>
     <div id="map"></div>
-    <div id="over_map"><span style="background-color:white; padding: 3px"> 2017 PEAK Camping Trip </span></div>
+    <div id="over_map" style="text-align:center"><span style="background-color:white; padding: 3px"> 2017 PEAK Camping Trip </span></div>
     <script>
       var map;
       function draw_path(){
