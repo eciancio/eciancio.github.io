@@ -1,22 +1,217 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Camping</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+    /* Always set the map height explicitly to define the size of the div
+    * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+      function draw_path(){
+	      
+	      var dirService = new google.maps.DirectionsService();
+	      var dirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      dirRenderer.setMap(map);
+	      
+	      var ndirService = new google.maps.DirectionsService();
+	      var ndirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      ndirRenderer.setMap(map);
+	      
+	      var ldirService = new google.maps.DirectionsService();
+	      var ldirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      ldirRenderer.setMap(map);
 
-<div class="home">
+	      var tdirService = new google.maps.DirectionsService();
+	      var tdirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      tdirRenderer.setMap(map);
+	      
+	      var ttdirService = new google.maps.DirectionsService();
+	      var ttdirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      ttdirRenderer.setMap(map);
 
-  <h1 class="page-heading">CouponWebsite</h1>
-  <p>This is a website template to hold the app that will be built. Worked on by cool dudes not nerds.<p>
-  <div class="row">
-    <div style="float:left;padding:15px;">
-      <h2>Nick Turowski</h2>
-      <img src="data:image/jpeg;base64,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">
-    </div> 
-    <div style="float:left;padding:15px">
-      <h2>Evan Ciancio</h2>
-    <img src="https://lh3.googleusercontent.com/-Zg6HdzjxZ-o/AAAAAAAAAAI/AAAAAAAAAiA/lAZnNHjHEWg/photo.jpg" style="width:168px;height:168px;">
-     </div> 
-    </div>
-  <div style="float:right;">
-    <h1 style="color:red">BAD HOMBRE!!!!!!</h1>
-    <img src="https://scontent.fdet1-1.fna.fbcdn.net/v/t1.0-9/13307407_10209864983250232_7625999826533063620_n.jpg?oh=07529f76cca12e2f7e6b56eed36e3dd0&oe=59B415CE" >
-</div>
+	      var rdirService = new google.maps.DirectionsService();
+	      var rdirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      rdirRenderer.setMap(map);
+	      
+	      var tqdirService = new google.maps.DirectionsService();
+	      var tqdirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      tqdirRenderer.setMap(map);
+	
+	      var mudirService = new google.maps.DirectionsService();
+	      var mudirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      mudirRenderer.setMap(map);
+
+	      var bsdirService = new google.maps.DirectionsService();
+	      var bsdirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      bsdirRenderer.setMap(map);
+	      
+	      var rldirService = new google.maps.DirectionsService();
+	      var rldirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      rldirRenderer.setMap(map);
+	      
+	      var oqdirService = new google.maps.DirectionsService();
+	      var oqdirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      oqdirRenderer.setMap(map);
+
+	      var hodirService = new google.maps.DirectionsService();
+	      var hodirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      hodirRenderer.setMap(map);
+ 
+	      var request = {origin: "43.093090, -85.645768",
+		      destination: "43.607642, -84.712969",
+		      travelMode: google.maps.TravelMode.DRIVING
+	      };
+	      
+	      dirService.route(request, function(result, status) {
+		      if (status == google.maps.DirectionsStatus.OK) {
+			      dirRenderer.setDirections(result);
+		      }
+	      });
+	      
+	      var request = {origin: "43.607642, -84.712969",
+		      destination: "44.881935, -86.041506",
+		      travelMode: google.maps.TravelMode.DRIVING
+	      };
+	      ndirService.route(request, function(result, status) {
+		      if (status == google.maps.DirectionsStatus.OK) {
+			      ndirRenderer.setDirections(result);
+		      }
+	      });
+	      
+	      var request = {origin:"44.881935, -86.041506", 
+		      destination: "45.472147, -85.066097",
+		      travelMode: google.maps.TravelMode.DRIVING
+	      };
+	      ldirService.route(request, function(result, status) {
+		      if (status == google.maps.DirectionsStatus.OK) {
+			      ldirRenderer.setDirections(result);
+		      }
+	      });
+	      
+	     /* var request = {origin:"45.472147, -85.066097", 
+		      destination: "45.557180, -85.114009",
+		      travelMode: google.maps.TravelMode.DRIVING
+	      };
+	      tdirService.route(request, function(result, status) {
+		      if (status == google.maps.DirectionsStatus.OK) {
+			      tdirRenderer.setDirections(result);
+		      }
+	      });
+	      
+	      var request = {origin:"45.557180, -85.114009", 
+		      destination: "45.632163, -85.065943", 
+		      travelMode: google.maps.TravelMode.DRIVING
+	      };
+	      ttdirService.route(request, function(result, status) {
+		      if (status == google.maps.DirectionsStatus.OK) {
+			     ttdirRenderer.setDirections(result);
+		      }
+	      });*/
+	      
+	     var request = {origin:"45.472147, -85.066097", 
+		      destination: "45.721791, -84.608245", 
+		      travelMode: google.maps.TravelMode.DRIVING
+	      };
+	      rdirService.route(request, function(result, status) {
+		      if (status == google.maps.DirectionsStatus.OK) {
+			     rdirRenderer.setDirections(result);
+		      }
+	      });
+		// End of day 1
+	      
+	      var request = {origin: "45.721791, -84.608245", 
+		      destination:"46.604496, -85.200749", 
+		      travelMode: google.maps.TravelMode.DRIVING
+	      };
+	      tqdirService.route(request, function(result, status) {
+		      if (status == google.maps.DirectionsStatus.OK) {
+			     tqdirRenderer.setDirections(result);
+		      }
+	      });
+	      
+	      var request = {origin: "46.604496, -85.200749", 
+		      destination:"46.423565, -86.624703", 
+		      travelMode: google.maps.TravelMode.DRIVING
+	      };
+	      mudirService.route(request, function(result, status) {
+		      if (status == google.maps.DirectionsStatus.OK) {
+			     mudirRenderer.setDirections(result);
+		      }
+	      });
+	      
+	      var request = {origin: "46.423565, -86.624703", 
+		      destination:"46.004185, -86.382254", 
+		      travelMode: google.maps.TravelMode.DRIVING
+	      };
+	      bsdirService.route(request, function(result, status) {
+		      if (status == google.maps.DirectionsStatus.OK) {
+			     bsdirRenderer.setDirections(result);
+		      }
+	      });
+	      
+	            
+	      var request = {origin: "46.004185, -86.382254", 
+		      destination:"45.721791, -84.608245", 
+		      travelMode: google.maps.TravelMode.DRIVING
+	      };
+	      rldirService.route(request, function(result, status) {
+		      if (status == google.maps.DirectionsStatus.OK) {
+			     rldirRenderer.setDirections(result);
+		      }
+	      });
+		// end of day two 
+	      
+	      var request = {origin: "45.721791, -84.608245", 
+		      destination:"45.396019, -84.057597", 
+		      travelMode: google.maps.TravelMode.DRIVING
+	      };
+	      oqdirService.route(request, function(result, status) {
+		      if (status == google.maps.DirectionsStatus.OK) {
+			     oqdirRenderer.setDirections(result);
+		      }
+	      });
+	      
+	      var request = {origin: "45.396019, -84.057597", 
+		      destination:"43.093090, -85.645768", 
+		      travelMode: google.maps.TravelMode.DRIVING
+	      };
+	      hodirService.route(request, function(result, status) {
+		      if (status == google.maps.DirectionsStatus.OK) {
+			     hodirRenderer.setDirections(result);
+		      }
+	      });
+
+
+
+      }
+      
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 44.72646, lng: -85.1651},
+
+	});
+	draw_path();
+     map.setZoom(7);
+      
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhYj2dLzv-69Wd4H2E-oT0vzGFgpV0_2c&callback=initMap"
+		    async defer></script>
+  </body>
+</html>
+
