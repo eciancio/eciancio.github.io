@@ -199,13 +199,31 @@
 
 
       }
-      
+  	
+	function add_markers() { 
+		var marker = new google.maps.Marker({
+			position: new google.maps.LatLng(46.509358, -86.520725),
+			map:map,
+			id: 'programs',
+			icon: 'http://www.christielakekids.com/_images/new/blue_circle.png',
+			zIndex: 100
+	});
+	google.maps.event.addListener(marker, 'mouseover', function(event) {
+		this.setIcon('pictured.jpg');
+	});
+	
+ 	google.maps.event.addListener(marker, 'mouseout', function(event) {
+	           this.setIcon('http://www.christielakekids.com/_images/new/blue_circle.png');
+		});
+	}
+	
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 44.72646, lng: -85.1651},
 
 	});
-	draw_path();
+	add_markers();
+	//draw_path();
      map.setZoom(7);
       
       }
