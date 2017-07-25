@@ -22,57 +22,57 @@
   </head>
   <body>
     <div id="map"></div>
-    <div id="over_map" style="text-align:center"><span style="background-color:white; padding: 3px"> 2017 PEAK Camping Trip </span></div>
+    <div id="over_map" style="text-align:center"><span style="background-color:white; padding: 3px"> 2017 PEAK Camping Trip </span></br><span style="background-color:white; padding: 3px; color: red">Day 1</span><span style="background-color:white; padding: 3px; color: blue">Day 2</span><span style="background-color:white; padding: 3px; color: green">Day 3</span></div>
     <script>
       var map;
       function draw_path(){
 	      
 	      var dirService = new google.maps.DirectionsService();
-	      var dirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      var dirRenderer = new google.maps.DirectionsRenderer({polylineOptions: {strokeColor: "red"}, suppressMarkers: true, preserveViewport: true});
 	      dirRenderer.setMap(map);
 	      
 	      var ndirService = new google.maps.DirectionsService();
-	      var ndirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      var ndirRenderer = new google.maps.DirectionsRenderer({polylineOptions: {strokeColor: "red"}, suppressMarkers: true, preserveViewport: true});
 	      ndirRenderer.setMap(map);
 	      
 	      var ldirService = new google.maps.DirectionsService();
-	      var ldirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      var ldirRenderer = new google.maps.DirectionsRenderer({polylineOptions: {strokeColor: "red"}, suppressMarkers: true, preserveViewport: true});
 	      ldirRenderer.setMap(map);
 
 	      var tdirService = new google.maps.DirectionsService();
-	      var tdirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      var tdirRenderer = new google.maps.DirectionsRenderer({polylineOptions: {strokeColor: "red"}, suppressMarkers: true, preserveViewport: true});
 	      tdirRenderer.setMap(map);
 	      
 	      var ttdirService = new google.maps.DirectionsService();
-	      var ttdirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      var ttdirRenderer = new google.maps.DirectionsRenderer({polylineOptions: {strokeColor: "red"},suppressMarkers: true, preserveViewport: true});
 	      ttdirRenderer.setMap(map);
 
 	      var rdirService = new google.maps.DirectionsService();
-	      var rdirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      var rdirRenderer = new google.maps.DirectionsRenderer({polylineOptions: {strokeColor: "red"},suppressMarkers: true, preserveViewport: true});
 	      rdirRenderer.setMap(map);
 	      
 	      var tqdirService = new google.maps.DirectionsService();
-	      var tqdirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      var tqdirRenderer = new google.maps.DirectionsRenderer({polylineOptions: {strokeColor: "blue"},suppressMarkers: true, preserveViewport: true});
 	      tqdirRenderer.setMap(map);
 	
 	      var mudirService = new google.maps.DirectionsService();
-	      var mudirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      var mudirRenderer = new google.maps.DirectionsRenderer({polylineOptions: {strokeColor: "blue"},suppressMarkers: true, preserveViewport: true});
 	      mudirRenderer.setMap(map);
 
 	      var bsdirService = new google.maps.DirectionsService();
-	      var bsdirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      var bsdirRenderer = new google.maps.DirectionsRenderer({polylineOptions: {strokeColor: "blue"},suppressMarkers: true, preserveViewport: true});
 	      bsdirRenderer.setMap(map);
 	      
 	      var rldirService = new google.maps.DirectionsService();
-	      var rldirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      var rldirRenderer = new google.maps.DirectionsRenderer({polylineOptions: {strokeColor: "blue"},suppressMarkers: true, preserveViewport: true});
 	      rldirRenderer.setMap(map);
 	      
 	      var oqdirService = new google.maps.DirectionsService();
-	      var oqdirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      var oqdirRenderer = new google.maps.DirectionsRenderer({polylineOptions: {strokeColor: "green"},suppressMarkers: true, preserveViewport: true});
 	      oqdirRenderer.setMap(map);
 
 	      var hodirService = new google.maps.DirectionsService();
-	      var hodirRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+	      var hodirRenderer = new google.maps.DirectionsRenderer({polylineOptions: {strokeColor: "green"},suppressMarkers: true, preserveViewport: true});
 	      hodirRenderer.setMap(map);
  
 	      var request = {origin: "43.093090, -85.645768",
